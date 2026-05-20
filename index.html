@@ -1,91 +1,206 @@
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EX5HKM6MSC"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madison Attobra</title>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EX5HKM6MSC"></script>
+  <script src="js/analytics.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: { 900: '#0a0a0a', 800: '#111111', 700: '#1a1a1a', 600: '#1e1e1e', 500: '#2a2a2a', 400: '#333333', 300: '#444444' },
+            neon: '#00ff00',
+            cyan: '#00d7ff',
+            txt: '#e6e6e6',
+            txtmuted: '#999999',
+          },
+          fontFamily: {
+            sans: ['Manrope', 'Noto Sans JP', 'sans-serif'],
+            mono: ['Space Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::selection { background: #00ff00; color: #0a0a0a; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #00ff00; }
+    html { scroll-behavior: smooth; }
 
-    gtag('config', 'G-EX5HKM6MSC');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madison Attobra</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
-    <style>
-        main{
-            padding-left: 70px;
-            padding-top: 45px;
-            color: #121314;
-            font-family: 'Poppins', sans-serif;
-        }
-        h1{
-            font-size: 70px;
-            margin-bottom: 10px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
-        h2{
-            font-size: 30px;
-        }
-        p{
-            font-size: 1.5em;
-            max-width: 600px;
-            font-weight: 400;
-        }
-        .info-work{
-            background-color: #000;
-            color: #fff;
-            display: inline-block;
-        }
-        .info-github{
-            background-color: #28a745;
-            color: #fff;
-            display: inline-block;
-            padding: 1px;
-        }
-        .info-github a{
-            text-decoration: none;
-            color: #fff;
-        }
-        .info-linkedin{
-            background-color: #0072b1;
-            color: #fff;
-            display: inline-block;
-            padding: 1px;
-        }
-        .info-linkedin a{
-            text-decoration: none;
-            color: #fff;
-        }
-        
-        @media (max-width: 747px) {
-            main{
-                padding: 25px;
-            }
-        }
+    html[lang="ja"] body {
+      font-family: 'Noto Sans JP', 'Manrope', sans-serif;
+      line-height: 1.8;
+    }
 
-    </style>
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .cursor-blink { animation: blink 1s step-end infinite; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease-out forwards; }
+    .fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .fade-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
+    .fade-up-delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100vh); }
+    }
+    .scanline {
+      background: linear-gradient(transparent, rgba(0,255,0,0.03), transparent);
+      height: 100px;
+      animation: scanline 8s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 5px rgba(0,255,0,0.3), 0 0 10px rgba(0,255,0,0.1); }
+      50% { box-shadow: 0 0 15px rgba(0,255,0,0.5), 0 0 30px rgba(0,255,0,0.2); }
+    }
+    .glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+
+    .code-block {
+      background: #111;
+      border-left: 3px solid #00ff00;
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 1rem 1.25rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      color: #00ff00;
+      overflow-x: auto;
+    }
+
+    .grid-overlay {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .lang-btn {
+      transition: all 0.3s ease;
+      filter: grayscale(30%);
+    }
+    .lang-btn:hover {
+      filter: grayscale(0%);
+    }
+    .lang-btn.active {
+      background: #00ff00;
+      filter: grayscale(0%);
+      box-shadow: 0 0 10px rgba(0,255,0,0.5);
+    }
+  </style>
 </head>
-<body>
-    
-    <main>
-        <h1>Salut.</h1>
+<body class="bg-dark-900 text-txt font-sans">
 
-        <h2>Mon nom est Madison Attobra.</h2>
+  <div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.02]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
 
-        <p>Je suis un développeur web freelance<br>
-        Vous pouvez retrouvez la plupart de mes travaux sur <span class="info-github"> <a target="_blank" href="https://github.com/madison08">GitHub</a></span>. <br>
-        Vous trouverez egalement mon parcours et d'autre infos sur <span class="info-linkedin"> <a target="_blank" href="https://www.linkedin.com/in/madison-attobra-178559180">Linkedin</a>
-        
-        <p>En dehors de la programmation, j'aime le football, les animes japonnais,le design et la photographie.</p>
+  <div class="fixed inset-0 pointer-events-none z-[99] overflow-hidden">
+    <div class="scanline absolute inset-x-0"></div>
+  </div>
 
-        <p>c'est tout je crois :-) . Merci !</p> 
-        </p>
-    </main>
-    
+  <div class="fixed inset-0 pointer-events-none z-0 grid-overlay opacity-50"></div>
+
+  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <div class="absolute top-1/4 -right-20 w-64 h-64 bg-neon/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 -left-20 w-48 h-48 bg-cyan/5 rounded-full blur-3xl"></div>
+
+    <div class="max-w-6xl mx-auto px-6 w-full relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-8">
+          <div class="fade-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-dark-400 bg-dark-700/50 mb-6">
+              <span class="w-2 h-2 rounded-full bg-neon animate-pulse"></span>
+              <span class="text-xs font-mono text-neon" data-i18n="badge">Available to build something great</span>
+            </div>
+          </div>
+
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tighter fade-up fade-up-delay-1">
+            <span class="text-txt" data-i18n="hero_greeting">Hi, I'm </span>
+            <span class="bg-gradient-to-r from-neon to-cyan bg-clip-text text-transparent">Madison Attobra</span>
+            <br>
+            <span id="typed-text" class="text-neon font-mono"></span>
+            <span class="cursor-blink text-neon font-mono">|</span>
+          </h1>
+
+          <p class="text-lg text-txtmuted leading-relaxed max-w-xl fade-up fade-up-delay-3">
+            <span data-i18n="description_1_part1">Je suis un développeur Fullstack. Vous pouvez retrouver la plupart de mes travaux sur </span>
+            <a href="https://github.com/madison08" target="_blank" class="text-cyan hover:text-neon transition-colors">GitHub</a>
+            <span data-i18n="description_1_part2">. Vous trouverez également mon parcours et d'autres infos sur </span>
+            <a href="https://www.linkedin.com/in/madison-attobra-178559180" target="_blank" class="text-cyan hover:text-neon transition-colors">LinkedIn</a>.
+          </p>
+
+          <p class="text-lg text-txtmuted leading-relaxed max-w-xl fade-up fade-up-delay-3" data-i18n="description_2">
+            En dehors de la programmation, j'aime le football, les animes japonais, le design et la photographie.
+          </p>
+
+          <p class="text-lg text-txtmuted leading-relaxed max-w-xl fade-up fade-up-delay-4" data-i18n="description_3">
+            C'est tout je crois :-) . Merci !
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 fade-up fade-up-delay-4 pt-4">
+            <a href="https://wa.me/2250767652231" target="_blank" class="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#128C7E] hover:shadow-[0_0_25px_rgba(37,211,102,0.3)] transition-all duration-300">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+              <span data-i18n="btn_whatsapp">WhatsApp Me</span>
+            </a>
+          </div>
+
+          <div class="flex items-center gap-6 pt-4 fade-up fade-up-delay-4">
+            <span class="text-xs font-mono text-txtmuted" id="currentYear"></span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="bg-dark-800 border border-dark-400 rounded-2xl overflow-hidden shadow-2xl">
+            <div class="flex items-center gap-2 px-4 py-3 bg-dark-700 border-b border-dark-400">
+              <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+              <span class="ml-2 text-xs font-mono text-txtmuted" data-i18n="terminal_path">~/madison-attobra</span>
+            </div>
+            <div class="p-5 font-mono text-sm leading-7 space-y-1">
+              <p><span class="text-neon">$</span> <span class="text-txt" data-i18n="terminal_command">cat profile.json</span></p>
+              <p class="text-txtmuted">{</p>
+              <p class="pl-4"><span class="text-cyan">"name"</span>: <span class="text-neon">"Madison Attobra"</span>,</p>
+              <p class="pl-4"><span class="text-cyan">"role"</span>: <span class="text-neon" data-i18n="terminal_role">"Développeur Fullstack"</span>,</p>
+              <p class="pl-4"><span class="text-cyan">"location"</span>: <span class="text-neon">"Abidjan, Côte d'Ivoire"</span>,</p>
+              <p class="pl-4"><span class="text-cyan">"languages"</span>: [<span class="text-neon">"JS"</span>, <span class="text-neon">"TS"</span>, <span class="text-neon">"Dart"</span>],</p>
+              <p class="pl-4"><span class="text-cyan">"interests"</span>: [<span class="text-neon" data-i18n="terminal_interests">"football"</span>, <span class="text-neon">"anime"</span>,  <span class="text-neon">"IA"</span>, <span class="text-neon" data-i18n="terminal_photography">"photographie"</span>, <span class="text-neon" data-i18n="terminal_content">"Creation de contenu"</span>]</p>
+              <p class="pl-4"><span class="text-cyan">"coffee_per_day"</span>: <span class="text-yellow-400">2</span></p>
+              <p class="text-txtmuted">}</p>
+              <p class="mt-2"><span class="text-neon">$</span> <span class="cursor-blink">▊</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="fixed top-4 right-4 z-50">
+    <div class="flex items-center gap-2 bg-dark-800 border border-dark-400 rounded-lg p-1">
+      <button onclick="setLanguage('fr')" class="lang-btn px-3 py-1.5 rounded-md text-2xl hover:scale-110 transition-transform" data-lang="fr" title="Français">🇫🇷</button>
+      <button onclick="setLanguage('en')" class="lang-btn px-3 py-1.5 rounded-md text-2xl hover:scale-110 transition-transform" data-lang="en" title="English">🇬🇧</button>
+      <button onclick="setLanguage('ja')" class="lang-btn px-3 py-1.5 rounded-md text-2xl hover:scale-110 transition-transform" data-lang="ja" title="日本語">🇯🇵</button>
+    </div>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>
